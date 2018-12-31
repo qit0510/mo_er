@@ -1,0 +1,11 @@
+{
+  "extends": "umi",
+  "rules": {
+    "jsx-a11y/href-no-hash": "off",
+    "semi": [1, "always"],
+    "indent": [1, 2],
+    "quotes": [1, "single"]
+  }
+}
+
+

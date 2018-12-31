@@ -1,0 +1,42 @@
+.listContainer {
+  .noteList {
+    li {
+      border-bottom: 1px solid #e8e8e8;
+      padding: 20px 10px;
+      .caption {
+        font: small-caps bold 18px/24px 'microsoft yahei';
+        a {
+          color: #000;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .content {
+        p {
+          font: small-caps 14px/ 2.1em 'microsoft yahei';
+          color: #999;
+          position: relative;
+          /* 2 times the line-height to show 2 lines */
+          height: 4.2em;
+          overflow: hidden;
+          &::after {
+            content: '...';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 0 20px 1px 45px;
+            background: url(http://newimg88.b0.upaiyun.com/newimg88/2014/09/ellipsis_bg.png) repeat-y;
+          }
+        }
+      }
+      .meta {
+        font: small-caps 12px 'microsoft yahei';
+        span {
+          color: #999;
+          padding-right:5px;
+        }
+      }
+    }
+  }
+}

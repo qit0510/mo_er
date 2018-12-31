@@ -1,0 +1,56 @@
+
+.header_light {
+  background-color: #fff;
+}
+
+.header_dark {
+  background-color: #001529;
+}
+
+.header {
+  margin-bottom: 30px;
+  height: 64px;
+  line-height: 64px;
+  box-shadow: 0 2px 8px #f0f1f2;
+  .logo {
+    text-align: center;
+    padding-left: 36px;
+    .logo_group {
+      .logo_pic {
+        width: 32px;
+        margin-right: 20px;
+      }
+      .logo_name_dark {
+        font-size: 20px;
+        color: white;
+      }
+      .logo_name_light {
+        font-size: 20px;
+        color: black;
+      }
+    }
+  }
+  .nav_list {
+    padding-left: 60px;
+    box-sizing: border-box;
+    line-height: 64px;
+    border-bottom: none;
+  }
+  .search {
+    margin-left: -15px;
+    max-width: 300px;
+    min-width: 200px;
+    input {
+      border: 0;
+    }
+  }
+  .tools {
+    font-size: 24px;
+    text-align: center;
+    span {
+      padding-right: 30px;
+      color: #1890ff;
+    }
+  }
+
+}

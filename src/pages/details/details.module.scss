@@ -1,0 +1,68 @@
+.main {
+  .spacing {
+    padding: 20px 0;
+    border-bottom: 1px solid #e8e8e8;
+    box-sizing: border-box;
+  }
+  .artisan {
+    margin: 0 0 30px 0;
+  }
+  .mainPic {
+    img {
+      width: 100%;
+    }
+    padding-bottom: 30px;
+  }
+  .caption {
+    h2 {
+      text-align: center;
+    }
+  }
+  .about {
+    padding-top: 15px;
+    .avatar {
+      line-height: 66px;
+      float: left;
+      img {
+        width: 66px;
+        border-radius: 100%;
+      }
+    }
+    .remark {
+      float: left;
+      line-height: 33px;
+      span {
+        padding-left: 10px;
+      }
+      .auth {
+        line-height: 33px;
+        margin-right: 10px;
+      }
+      .btn {
+        padding-left: 10px;
+      }
+      .putTime {
+        padding-right: 20px;
+      }
+      .c_icon {
+        .icon {
+          cursor: pointer;
+        }
+      }
+      .icon {
+        color: #1890ff;
+        margin-right: 3px;
+        border: none;
+      }
+    }
+  }
+}
+
+.clr {
+  clear: both;
+}
+
+.content {
+  padding-top: 15px;
+  margin-bottom: 30px;
+}
