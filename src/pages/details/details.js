@@ -30,6 +30,9 @@ class Details extends Component {
   handleClickZan = () => {
     this.props.changeZan(this.props.artisan.id,this.props.artisan.is_zan);
   }
+  handleClickFollow = () =>{
+    this.props.changeFllow(this.props.artisan.user.id)
+  }
   render() {
     const icon = () => (
       this.props.user.id === this.props.artisan.user.id &&
@@ -67,7 +70,7 @@ class Details extends Component {
                 {this.props.user && icon()}
                 <br/>
                 <span className={detailsStyle.putTime}>发布时间：{this.props.artisan.updated_at}</span>
-                <span><Icon className={detailsStyle.icon} type="eye"/>38</span>
+                <Icon/>
                 <span><Icon className={detailsStyle.icon} type="notification"/>38</span>
                 <span className={detailsStyle.c_icon}>
                   <Icon className={detailsStyle.icon} onClick={this.handleClickZan} style={{'color':this.props.artisan.is_zan? 'red':''}} type="like"/>
@@ -113,6 +116,9 @@ const mapDispatchToProps = (dispatch) => {
     changeZan(id,isZan) {
       dispatch(actionCreate.changeZan(id,isZan));
     },
+    changeFllow(id) {
+      dispatch(actionCreate.ChangeFllow(id));
+    }
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Details);

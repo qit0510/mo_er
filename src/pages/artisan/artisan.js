@@ -6,7 +6,7 @@ import HotGroom from '../../components/hotGroom/HotGroom';
 import IDCard from '../../components/IDCard/IDCard';
 import GoodGroom from "../../components/goodGroom/GoodGroom";
 
-export default class Details extends Component {
+export default class Artisan extends Component {
   render() {
     return (
       <div className={detailsStyle.main}>

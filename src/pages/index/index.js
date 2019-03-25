@@ -6,14 +6,18 @@ import Groom from '../../components/groom/Groom';
 import NodeList from '../../components/artlist/NoteList';
 import HotGroom from '../../components/hotGroom/HotGroom';
 import IDCard from '../../components/IDCard/IDCard';
+import axios from 'axios';
 
 export default class index extends Component {
+
   render() {
     return (
       <div className={IndexStyle.main}>
         <Row>
           <Col xs={{span: 24, offset: 0}} lg={{span: 24, offset: 0}} xl={{span: 12, offset: 4}}>
-            <CarouselFigure/>
+            <div className={IndexStyle.carousel}>
+              <CarouselFigure/>
+            </div>
             <div className={IndexStyle.spacing}>
               <Groom className={IndexStyle.main}/>
             </div>

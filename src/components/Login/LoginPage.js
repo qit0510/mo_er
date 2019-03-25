@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import LoginStyle from './login.module.scss';
 import {actionCreate} from './store/index';
 import { Card, Form, Icon, Input, Button, Checkbox, } from 'antd';
-
+import {Link} from 'react-router-dom';
 
 const tabList = [{
   key: 'user',
@@ -43,14 +43,14 @@ class LoginPage extends Component {
             {getFieldDecorator('name', {
               rules: [{ required: true, message: 'Please input your username!' }],
             })(
-              <Input size='large' className={LoginStyle.inputBtn} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+              <Input size='large' prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
             )}
           </Form.Item>
           <Form.Item>
             {getFieldDecorator('password', {
               rules: [{ required: true, message: 'Please input your Password!' }],
             })(
-              <Input size='large' className={LoginStyle.inputBtn} prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)'}} />} type="password" placeholder="Password" />
+              <Input size="large" prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)'}} />} type="password" placeholder="Password" />
             )}
           </Form.Item>
           <Form.Item>
@@ -58,13 +58,12 @@ class LoginPage extends Component {
               valuePropName: 'checked',
               initialValue: true,
             })(
-              <Checkbox className={LoginStyle.checkBtn}>Remember me</Checkbox>
+              <Checkbox className={LoginStyle.checkBtn}>记住密码</Checkbox>
             )}
-            <a className={LoginStyle.forgot} href="/">Forgot password</a><br/>
-            <Button type="primary" htmlType="submit" block>
-              Log in
-            </Button><br/>
-            Or <a href="/">register now!</a>
+            <a className={LoginStyle.forgot} href="/">忘记密码</a><br/>
+            <Button type="primary" htmlType="submit" block>Log in
+            </Button>
+            <Link className={LoginStyle.zc} to="/register">OR 注册</Link>
           </Form.Item>
         </Form>
 
@@ -79,16 +78,11 @@ class LoginPage extends Component {
             <img className={LoginStyle.logo_pic} src={require('../../statics/img/log1_black.png')} alt="LOG" />
             <span className={LoginStyle.logo_name_light}>摩尔</span>
           </div>
-        </div>
-        <div className={LoginStyle.card}>
-          <Card
-            style={{ width: '100%' }}
-            tabList={tabList}
-            activeTabKey={this.state.key}
-            onTabChange={(key) => { this.onTabChange(key, 'key'); }}
-          >
-            {contentList[this.state.key]}
-          </Card>
+          <div className={LoginStyle.card}>
+            <Card style={{ width: '100%' }} tabList={tabList} activeTabKey={this.state.key} onTabChange={(key) => { this.onTabChange(key, 'key'); }}>
+              {contentList[this.state.key]}
+            </Card>
+          </div>
         </div>
       </div>
     );

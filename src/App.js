@@ -10,6 +10,7 @@ import Details from './pages/details/details';
 import ArtList from './pages/artisan/artisan';
 import TagArtList from './pages/tagArtisan/tagArtisan';
 import Login from './components/Login/LoginPage';
+import Register from './components/Login/Register';
 import ArtCreate from './pages/articleCreate/ArticleCreate';
 import ArticleEdit from './pages/articleEdit/ArticleEdit';
 import Article from './pages/artisan/artisan';
@@ -23,7 +24,6 @@ class App extends Component {
       tags: ''
     }
   }
-
   componentDidMount() {
     axios.get('/api/parent').then((res) => {
       this.setState({columns: res.data});
@@ -43,13 +43,13 @@ class App extends Component {
         <Router history={history}>
           <Switch>
             <Route exact path="/login" component={Login}/>
+            <Route exact path="/register" component={Register}/>
             <Route path="/" render={() => {
               return (
                 <div className="App">
-                  <MainHeader columns={this.state.columns}/>
-                  <div>
+                  <MainHeader/>
+                  <div style={{marginTop:33}}>
                     <Route exact path="/" component={HomePage}/>
-                    <Route exact path="/register" component={HomePage}/>
                     <Route exact path="/details/:id" component={Details}/>
                     <Route exact path="/artlist" component={ArtList}/>
                     <Route exact path="/artcreate" component={ArtCreate}/>
@@ -61,8 +61,7 @@ class App extends Component {
                           return (
                             item.column.map((children) => {
                               return (
-                                <Route key={'children' + children.id} exact
-                                       path={"/" + item.remark + "/" + children.remark} component={Article}/>
+                                <Route key={'children' + children.id} exact path={"/" + item.remark + "/" + children.remark} component={Article}/>
                               );
                             })
                           )

@@ -21,3 +21,5 @@ export const ADD_COMMENT_DATA = 'add_comment_data';
 export const GET_PAGE_SIZE = 'get_page_size';
 export const SET_NULL_DATA = 'set_null_data';
 export const SET_NEXT_INFO = 'set_next_info';
+export const GET_COLUMN = 'get_column';
+export const GET_TAG = 'get_tag';

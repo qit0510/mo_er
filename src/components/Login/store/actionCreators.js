@@ -15,3 +15,17 @@ export const sendLoad = (value) => {
     });
   };
 };
+
+export const register = (value)=>{
+  return (dispatch) => {
+    axios.post('api/register',value).then((res) => {
+      if (res.status === 204){
+        history.goBack();
+      }else {
+        console.log('232');
+      }
+    }).catch((errors) => {
+      console.log(errors);
+    });
+  };
+}

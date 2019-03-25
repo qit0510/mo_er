@@ -50,7 +50,7 @@ class ArticleForm extends Component {
             initialValue: this.props.article && this.props.article.title,
             rules: [{required: true, message: '请输入标题！', whitespace: true}],
           })(
-            <Input/>,
+            <Input size='large' />,
           )}
         </FormItem>
         <FormItem
@@ -64,7 +64,7 @@ class ArticleForm extends Component {
               {required: true, message: '请选择文章所属栏目！'},
             ],
           })(
-            <Select placeholder="请选择文章所属栏目！">
+            <Select size='large' placeholder="请选择文章所属栏目！">
               {
                 this.props.columns.map(item => (<Option key={item.id} value={item.id}>{item.title}</Option>))
               }
@@ -94,7 +94,7 @@ class ArticleForm extends Component {
         </FormItem>
         <br/>
         <FormItem>
-          <Button type="danger" block htmlType="submit">发布文章</Button>
+          <Button type="primary" size='large' block htmlType="submit">发布文章</Button>
         </FormItem>
       </Form>
     );

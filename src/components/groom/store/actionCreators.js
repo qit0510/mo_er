@@ -9,10 +9,6 @@ const setInitGroomInfo = (data) => ({
 
 export const initGroomInfo = () => {
   return (dispatch) => {
-    axios.get('api/tag').then((res) => {
-      dispatch(setInitGroomInfo(res.data));
-    }).catch((errors) => {
-      console.log(errors);
-    });
+
   };
 };

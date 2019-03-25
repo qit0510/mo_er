@@ -23,11 +23,11 @@ export default class CarouselFStyleCarouselFigure extends Component {
               src="//upload.jianshu.io/admin_banners/web_images/4448/d9a0fd8f0622d2323161b68d2123c7f28837d28f.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540"
               alt=""/>
           </div>
-          <div className={CarouselFStyle.picItem}>
+          {/*<div className={CarouselFStyle.picItem}>*/}
             {/*<img*/}
             {/*src="//upload.jianshu.io/admin_banners/web_images/4486/41d9173c44ce6eded75da5f82da659973ddaad41.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540"*/}
             {/*alt=""/>*/}
-          </div>
+          {/*</div>*/}
           <div className={CarouselFStyle.picItem}>
             <img
               src="//upload.jianshu.io/admin_banners/web_images/4501/572782ecf027e81f518edce85f98036e88beb290.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540"

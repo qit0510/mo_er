@@ -11,10 +11,13 @@ const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 class MainHeader extends Component {
+
   componentDidMount() {
     this.props.checkLogin();
-  }
+    this.props.getColumns();
+    this.props.getTags();
 
+  }
   exitLogin = () => {
     axios.get('/api/logout').then(() => {
       this.props.outLogin();
@@ -24,7 +27,6 @@ class MainHeader extends Component {
   }
 
   render() {
-    // this.props.columns && console.log(this.props.columns)
     const serve = () => (
       <ul>
         <li><Link to="/"><Button type="dashed" block>我的首页</Button></Link></li>
@@ -39,6 +41,7 @@ class MainHeader extends Component {
         <li><Button type="dashed" block>注册</Button></li>
       </ul>
     );
+    console.log(this.props.columns)
     return (
       <Affix offsetTop={0}>
         <div
@@ -48,8 +51,8 @@ class MainHeader extends Component {
               <div className={HeadereStyle.logo}>
                 <div className={HeadereStyle.logo_group}>
                   <img className={HeadereStyle.logo_pic}
-                       src={this.props.isDark ? require('../../statics/img/log1_white.png') : require('../../statics/img/log1_black.png')}
-                       alt="LOG"/>
+                     src={this.props.isDark ? require('../../statics/img/log1_white.png') : require('../../statics/img/log1_black.png')}
+                     alt="LOG"/>
                   <span
                     className={this.props.isDark ? HeadereStyle.logo_name_dark : HeadereStyle.logo_name_light}>
                                         摩尔
@@ -96,18 +99,17 @@ class MainHeader extends Component {
                     }
                   })
                 }
-                <Menu.Item key="communication">
-                  <Link to='/communication'>
-                    <Icon type="bank" theme="outlined"/>
-                    交流
-                  </Link>
-                </Menu.Item>
+                {/*<Menu.Item key="communication">*/}
+                  {/*<Link to='/communication'>*/}
+                    {/*<Icon type="bank" theme="outlined"/>*/}
+                    {/*交流*/}
+                  {/*</Link>*/}
+                {/*</Menu.Item>*/}
               </Menu>
             </Col>
             <Col xs={0} sm={0} md={0} lg={6} xl={4}>
               <div className={HeadereStyle.search}>
-                <Search placeholder="input search text" onSearch={value => console.log(value)}
-                        style={{width: 200}} size="large"/>
+                <Search placeholder="input search text" onSearch={value => console.log(value)} style={{width: 200}} size="large"/>
               </div>
             </Col>
             <Col xs={0} sm={0} md={0} lg={0} xl={4}>
@@ -123,14 +125,13 @@ class MainHeader extends Component {
                   <p>
                     <span>夜间模式：</span>
                     <Switch onChange={this.props.setBackground} checkedChildren="开"
-                            unCheckedChildren="关" defaultChecked/>
+                      unCheckedChildren="关" defaultChecked/>
                   </p>
                   <p>Some contents...</p>
                 </Drawer>
-                <Popover placement="bottom" title={this.props.user ? this.props.user.name : '游客'}
-                         content={this.props.user ? serve() : login()} trigger="click">
+                <Popover placement="bottom" title={this.props.user ? this.props.user.name : '游客'} content={this.props.user ? serve() : login()} trigger="click">
                   {this.props.user ?
-                    <span><img style={{width: 30, borderRadius: 30}} src={this.props.user.avatar} alt="图片"/></span> : (
+                    <span><img style={{width: 30, borderRadius: 30}} src={this.props.user?(this.props.user.avatar?this.props.user.avatar:require('../../statics/img/log1_black.png')):require('../../statics/img/log1_black.png')} alt="图片"/></span> : (
                       <span><Icon type="login" onClick={this.showDrawer} theme="outlined"/></span>)}
                 </Popover>
               </div>
@@ -149,6 +150,7 @@ const mapStateToProps = (state) => {
     visible: state.get('header').get('visible'),
     isDark: state.get('header').get('isDark'),
     user: state.get('header').get('user'),
+    columns:state.get('header').get('parentCloum')
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -171,6 +173,13 @@ const mapDispatchToProps = (dispatch) => {
     outLogin() {
       dispatch(actionCreate.clearUser());
     },
+    getColumns(){
+      dispatch(actionCreate.getMainColumn());
+    },
+    getTags(){
+      dispatch(actionCreate.getMainTag());
+    }
+
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MainHeader);
